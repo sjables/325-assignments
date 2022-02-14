@@ -43,7 +43,7 @@ st.markdown("<h1 style='text-align: center; color: yellow;'>Migration from Asian
 #@st.cache needed??
 st.subheader('Raw data')
 def load_data(nrows):
-    data = pd.read_csv(r'/Users/sarajabbar/Documents/MSBA/MSBA 325 Section 1/Week 2/Assignment Submission/325 Assignment - sja38/Datasets/archive/Asia_USA_Migration_Data_Coord3.csv', nrows=nrows) 
+    data = pd.read_csv(s3://datasetssja38/Asia_USA_Migration_Data_Coord3.csv', nrows=nrows) 
     return data
 data = load_data(5000)
 st.write(data)
@@ -105,7 +105,7 @@ with st.expander("See explanation"):
      """)
 
 #import cleaned CSV map with GDP per capita
-final_df = pd.read_csv(r'/Users/sarajabbar/Documents/MSBA/MSBA 325 Section 1/Week 2/Assignment Submission/325 Assignment - sja38/Datasets/Asia_USA_Immigration_Final.csv')
+final_df = pd.read_csv('s3://datasetssja38/Asia_USA_Immigration_Final.csv')
 final_df = final_df.replace('..', '0')
 
 st.subheader('')
