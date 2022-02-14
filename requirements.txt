@@ -1,6 +1,6 @@
 plotly
 pandas
-chart_studio.plotly
+chart_studio
 plotly.figure_factory
 plotly.graph_objects
 plotly.express
