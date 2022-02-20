@@ -10,7 +10,7 @@ st.set_page_config(
     layout="centered",
     page_icon="🌏",
     menu_items={
-    'About': "#In an ideal world, I would redirect you to another page. We don't live in an ideal world 🧐"
+    'About': "#In an ideal world, I would redirect you to another page. 🧐"
     }
 )
 
@@ -27,7 +27,7 @@ def set_bg_hack_url():
          f"""
          <style>
          .stApp {{
-             background: url("https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80");
+             background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1744&q=80");
              background-size: cover
          }}
          </style>
@@ -41,12 +41,15 @@ set_bg_hack_url()
 st.markdown("<h1 style='text-align: center; color: yellow;'>Migration from Asian Countries to the United States of America</h1>", unsafe_allow_html=True)
 
 #@st.cache needed??
+#Create a subheader with a different background than a transparent one
 st.subheader('Raw data')
 def load_data(nrows):
     data = pd.read_csv('https://datasetssja38.s3.amazonaws.com/Asia_USA_Migration_Data_Coord3.csv', nrows=nrows) 
     return data
 data = load_data(5000)
-st.write(data)
+
+df = data.style.set_properties(**{'background-color': 'black','color': 'white'})
+st.write(df)
 
 #Migration histogram
 data["Population"].replace({"..": "0"}, inplace=True)
@@ -101,7 +104,7 @@ with st.expander("See explanation"):
      st.write("""
          Over time, it's clear to see that while India's immigration rates fall,
          you see an increase in Middle Eastern countries' immigration rates. 
-         This might be an indicator that the Arab Spring influenced immigration levels.
+         Iraq's increase, for example, can be attributed to the 2003 US Invasion.
      """)
 
 #import cleaned CSV map with GDP per capita
